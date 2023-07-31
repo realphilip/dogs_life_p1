@@ -7,6 +7,25 @@
   pointer-events: none;
 }
 
+.App-link {
+  color: #61dafb;
+}
+
+.container{
+  max-width: 300px;
+  padding: 15px;
+}
+
+.card-img-top{
+  max-height: inherit;
+}
+.imgContainer{
+  padding: 10px;
+  max-height: 250px;
+  min-height: 250px;
+  max-width: 250px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -24,9 +43,6 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
 @keyframes App-logo-spin {
   from {
