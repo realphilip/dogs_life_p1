@@ -1,17 +1,15 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AllHeroes from './components/AllHeroes';
-import HeroForm from './components/HeroForm';
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AllHeroes from "./components/AllHeroes";
+import HeroForm from "./components/HeroForm";
 
 function App() {
   return (
     <>
-  
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
           <Navbar.Brand href="/">Heroes</Navbar.Brand>
@@ -24,14 +22,13 @@ function App() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      
-        <Routes>
-          <Route path="allheroes" element={<AllHeroes/>} />
-          <Route path="addhero" element={<HeroForm/>} />
-          <Route path="/" element={<AllHeroes/>} />
-        </Routes>
-      
-   </> 
+
+      <Routes>
+        <Route path="allheroes" element={<AllHeroes />} />
+        <Route path="addhero" element={<HeroForm />} />
+        <Route path="/" element={<AllHeroes />} />
+      </Routes>
+    </>
   );
 }
 

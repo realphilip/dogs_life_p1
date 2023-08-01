@@ -1,8 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 import Batman from "./images/1.jpeg";
 import Superman from "./images/2.jpeg";
 import GreenLantern from "./images/4.jpeg";
@@ -13,9 +13,9 @@ import Deadshot from "./images/7.jpeg";
 import CountVertigo from "./images/8.jpeg";
 import Robin from "./images/9.jpeg";
 import Nightwing from "./images/10.jpeg";
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from "react-router-dom";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -34,8 +34,8 @@ const images = {
   Deadshot,
   CountVertigo,
   Robin,
-  Nightwing
-}
+  Nightwing,
+};
 export default images;
 
 // If you want to start measuring performance in your app, pass a function
