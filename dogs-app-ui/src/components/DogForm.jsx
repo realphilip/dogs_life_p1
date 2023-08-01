@@ -34,7 +34,7 @@ const DogForm = () => {
         dog.age = age;
         dog.owner_id = ownerId;
     
-        fetch('/java-api\src\main\java\com\db\grad\javaapi\model\Dog.java', {
+        fetch('http://localhost:8080/dogs', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
