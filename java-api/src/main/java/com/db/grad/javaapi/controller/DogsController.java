@@ -3,18 +3,18 @@ package com.db.grad.javaapi.controller;
 import com.db.grad.javaapi.service.DogService;
 import com.db.grad.javaapi.model.Dog;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.CrossOrigin;
-
+import org.springframework.http.HttpStatus;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000/")
 public class DogsController {
   @Autowired
   DogService dogService;
@@ -55,8 +55,13 @@ public class DogsController {
   }
 
   @PostMapping("/newdog")
-  public Dog addDog(@RequestBody Dog newDog) {
-    return dogService.addDog(newDog);
+  public HttpStatus addDog(@RequestBody Dog newDog) {
+    Dog result = dogService.addDog(newDog);
+    if (result == null){
+      return HttpStatus.PRECONDITION_FAILED;
+    }else{
+      return HttpStatus.CREATED;
+    }
   }
 
 }
