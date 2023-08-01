@@ -30,11 +30,8 @@ const AllHeroes = () => {
             <h1> Total count is: {total}</h1>
             <Row >
             {heroes.map(hero => (
-               <div className='container' key={hero.id.toString()}>
-                  <HeroDetail info={hero} />
-                     <div className='container' key={hero.id.toString()}>
-                        <HeroDetail info={hero} parentCount={totalCountHandler} />
-                     </div>
+               <div className='container' key={hero.id.toString()}>                   
+                  <HeroDetail info={hero} parentCount={totalCountHandler} />
                </div>
             ))}
             </Row>
