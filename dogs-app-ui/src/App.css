@@ -7,13 +7,32 @@
   pointer-events: none;
 }
 
-.dogForm {
+.App-link {
+  color: #61dafb;
+}
+
+.heroForm {
   display: flex;
   width: 100%;
   max-width: 40%;
   margin: 0 auto;
   padding-top: 20px;
   justify-content: center;
+}
+
+.container{
+  max-width: 300px;
+  padding: 15px;
+}
+
+.card-img-top{
+  max-height: inherit;
+}
+.imgContainer{
+  padding: 10px;
+  max-height: 250px;
+  min-height: 250px;
+  max-width: 250px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -33,9 +52,6 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
 @keyframes App-logo-spin {
   from {
