@@ -4,14 +4,9 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button'
 
 const DogForm = () => {
-    const [dogId, setDogId] = useState(0);
     const [name, setName] = useState('');
     const [age, setAge] = useState(0);
     const [ownerId, setOwnerId] = useState(0);
-
-    const handleDogIdChange = (event)=> {
-        setDogId(event.target.value);
-    }
 
     const handleNameChange = (event)=>{
         setName(event.target.value);
@@ -29,7 +24,6 @@ const DogForm = () => {
         event.preventDefault();
     
         let dog = {};
-        dog.dog_id = dogId;
         dog.name = name;
         dog.age = age;
         dog.owner_id = ownerId;
@@ -43,7 +37,6 @@ const DogForm = () => {
         })
         .then((response) => response.json())
         .then((data) => {
-            setDogId(0);
             setName('');
             setAge(0);
             setOwnerId(0);
@@ -56,11 +49,6 @@ const DogForm = () => {
     return (
         <Row className='dogForm'>
             <Form >
-                <Form.Group className="mb-3" controlId="dogId">
-                    <Form.Label>Dog ID: </Form.Label>
-                    <Form.Control type="number" placeholder="Dog ID" value={dogId}
-                    onChange={handleDogIdChange} />
-                </Form.Group>
                 <Form.Group className="mb-3" controlId="name">
                     <Form.Label>Dog Name: </Form.Label>
                     <Form.Control type="text" placeholder="Dog name" value={name}
