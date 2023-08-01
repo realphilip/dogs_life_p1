@@ -50,4 +50,9 @@ public class DogsController {
     return dogService.alldogs();
   }
 
+  @PostMapping("/newdog")
+  public Dog addDog(@RequestBody Dog newDog) {
+    return dogService.addDog(newDog);
+  }
+
 }
