@@ -34,7 +34,7 @@ const DogForm = () => {
         dog.age = age;
         dog.owner_id = ownerId;
     
-        fetch('http://localhost:8080/dogs', {
+        fetch('http://localhost:8080/newdog', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
