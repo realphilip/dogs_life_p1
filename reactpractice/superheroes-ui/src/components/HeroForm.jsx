@@ -24,16 +24,26 @@ const HeroForm = () => {
     const handleTeamChange = (event)=>{
         setTeamID(event.target.value)
     }
+    
 
     const handleSubmit =(event)=>{
-      event.preventDefault();
-      let hero = {};
-      hero.alias = alias;
-      hero.name = name;
-      hero.ability = ability;
-      hero.teamID = teamID;
-      console.log(hero);
-    }
+        event.preventDefault();
+        let hero = {};
+        hero.alias = alias;
+        hero.name = name;
+        hero.ability = ability;
+        hero.teamID = teamID;
+        saveHero(hero)
+          .then(res => {
+             setAbility('');
+             setAlias('');
+             setName('');
+             setTeamID(0)
+             })
+           .catch(err=>{
+              console.log(err);
+             })   
+       }
 
   
 
