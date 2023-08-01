@@ -64,4 +64,9 @@ public class DogsController {
     }
   }
 
+  @GetMapping ("/getOwner/id/{id}")
+  public long getOwnerID(@PathVariable long id){
+    return dogService.getOwnerId(id);
+  }
+
 }

@@ -60,7 +60,8 @@ public class DogService {
         return itsDogRepo.findAll();
     }
 
-    public long getOwnerId (Dog dog) {
+    public long getOwnerId (long id) {
+        Dog dog = findDogsById(id);
         return dog.getOwner_id();
     }
 
