@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class DogsHandlerTest {
+public class DogsServiceTest {
 
     private DogsRepository itsDogRepo = new DogsRepositoryStub();
 
@@ -24,7 +24,7 @@ public class DogsHandlerTest {
 
         //arrange
 
-        DogHandler cut = new DogHandler(itsDogRepo);
+        DogService cut = new DogService(itsDogRepo);
         Dog theDog = new Dog();
         theDog.setName("Bruno");
         cut.addDog( theDog );
@@ -42,7 +42,7 @@ public class DogsHandlerTest {
 
     @Test
     public void testGetDogById() {
-        DogHandler cut = new DogHandler(itsDogRepo);
+        DogService cut = new DogService(itsDogRepo);
         Dog theDog = new Dog();
         theDog.setName("Bruno");
         cut.addDog(theDog);
@@ -57,52 +57,52 @@ public class DogsHandlerTest {
     }
     @Test
     public void addSeveralDogsReturnNumberOfDogsMatchNumberAdded(){
-        DogHandler dogHandler = new DogHandler(itsDogRepo);
+        DogService dogService = new DogService(itsDogRepo);
 
         Dog dog1 = new Dog();
         dog1.setName("Max");
-        dogHandler.addDog( dog1 );
+        dogService.addDog( dog1 );
 
         Dog dog2 = new Dog();
         dog2.setName("John");
-        dogHandler.addDog( dog2 );
+        dogService.addDog( dog2 );
 
         Dog dog3 = new Dog();
         dog3.setName("Wick");
-        dogHandler.addDog( dog3 );
+        dogService.addDog( dog3 );
 
-        assertEquals(3, dogHandler.getNoOfDogs(), "Number of dogs does not match the number added");
+        assertEquals(3, dogService.getNoOfDogs(), "Number of dogs does not match the number added");
     }
 
     @Test
     public void getDogByName(){
-        DogHandler dogHandler = new DogHandler(itsDogRepo);
+        DogService dogService = new DogService(itsDogRepo);
         //dog1
         Dog dog1 = new Dog();
         dog1.setName("Max");
-        dogHandler.addDog(dog1);
+        dogService.addDog(dog1);
         //dog2
         Dog dog2 = new Dog();
         dog2.setName("John");
-        dogHandler.addDog(dog2);
+        dogService.addDog(dog2);
 
         Dog dog3 = new Dog();
         dog3.setName("John");
-        dogHandler.addDog(dog3);
+        dogService.addDog(dog3);
 
         //Case 1: Dog with the given name exists
-        Dog resultDog1 = dogHandler.getDogByName(dog1.getName());
+        Dog resultDog1 = dogService.getDogByName(dog1.getName());
         assertNotNull(resultDog1, "Dog should not be null");
         assertEquals(dog1.getName(), resultDog1.getName(), "Dog exists");
 
         //Case 2: Several Dogs exists with the same name - should return null
-        Dog resultDog2 = dogHandler.getDogByName(dog2.getName());
+        Dog resultDog2 = dogService.getDogByName(dog2.getName());
         assertNull(resultDog2, "Dog should be null as there are several Dogs existing with the same name");
     }
 
     @Test
     public void checkIfDogIDIsUpdated(){
-        DogHandler dogHandler = new DogHandler(itsDogRepo);
+        DogService dogService = new DogService(itsDogRepo);
 
         Dog dog1 = new Dog();
         dog1.setId(56);
@@ -111,29 +111,30 @@ public class DogsHandlerTest {
 
         dog1.setId(1L);
 
-        dogHandler.updateDogDetails(dog1);
+        dogService.updateDogDetails(dog1);
 
         assertEquals(1L, dog1.getId());
     }
 
     @Test
     public void addAndRemoveDog(){
-        DogHandler dogHandler = new DogHandler(itsDogRepo);
+        DogService dogService = new DogService(itsDogRepo);
 
         Dog dog1 = new Dog();
         dog1.setName("Max");
-        dogHandler.addDog( dog1 );
+        dogService.addDog( dog1 );
 
         Dog dog2 = new Dog();
         dog2.setName("Max2");
-        dogHandler.addDog( dog2 );
+        dogService.addDog( dog2 );
 
         Dog dog3 = new Dog();
         dog3.setName("Max3");
-        dogHandler.addDog( dog3 );
+        dogService.addDog( dog3 );
 
-        dogHandler.removeDog(1);
-        assertEquals(2, dogHandler.getNoOfDogs());
+        dogService.removeDog(1);
+        assertEquals(2, dogService.getNoOfDogs());
 
     }
 }
+

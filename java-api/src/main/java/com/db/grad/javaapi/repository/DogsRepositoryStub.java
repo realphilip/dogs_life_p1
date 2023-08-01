@@ -1,4 +1,6 @@
+/*
 package com.db.grad.javaapi.repository;
+
 
 import com.db.grad.javaapi.model.Dog;
 
@@ -40,7 +42,7 @@ public class DogsRepositoryStub implements DogsRepository {
 
         return result;
     }
-
+/*
     @Override
     public long save(Dog aDog) {
         Dog retrievedDog = null;
@@ -97,3 +99,4 @@ public class DogsRepositoryStub implements DogsRepository {
     }
 
 }
+*/
