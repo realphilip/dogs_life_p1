@@ -3,7 +3,7 @@ import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { getOwnerID } from "../services/dogs-service";
+import { getOwnerID, getNoOfDogs } from "../services/dogs-service";
 import { useEffect } from "react";
 
 function DogDetails(props) {
@@ -12,7 +12,7 @@ function DogDetails(props) {
   const getOwner = (id) => {
     getOwnerID(id)
       .then((data) => {
-        setOwner(data.data); // Assuming data is an object containing the owner details
+        setOwner(data.data); 
         console.log(data.data);
       })
       .catch((err) => {
@@ -41,8 +41,8 @@ function DogDetails(props) {
           <div>
             <p>Owner Details:</p>
             <p>Owner ID: {owner}</p>
-            <p>Name: {owner.name}</p>
-            <p>Age: {owner.age}</p>
+            <p>Name: </p>
+            <p>Age: </p>
           </div>
         )}
       </Card.Body>
