@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button'
+import { saveHero } from '../services/hero-service';
 
 const HeroForm = () => {
     const [alias, setAlias] = useState('');
     const [name, setName] = useState('');
-    const [ability, setAbility] = useState('');
+    const [superpower, setSuperpower] = useState('');
     const [teamID, setTeamID] = useState(0);
 
     const handleAliasChange = (event)=> {
@@ -17,25 +18,24 @@ const HeroForm = () => {
         setName(event.target.value);
     }
 
-    const handleAbilityChange = (event)=>{
-        setAbility(event.target.value)
+    const handleSuperpowerChange = (event)=>{
+        setSuperpower(event.target.value)
     }
 
     const handleTeamChange = (event)=>{
         setTeamID(event.target.value)
     }
     
-
-    const handleSubmit =(event)=>{
+    const handleSubmit = (event)=>{
         event.preventDefault();
         let hero = {};
         hero.alias = alias;
         hero.name = name;
-        hero.ability = ability;
+        hero.superpower = superpower;
         hero.teamID = teamID;
         saveHero(hero)
           .then(res => {
-             setAbility('');
+             setSuperpower('');
              setAlias('');
              setName('');
              setTeamID(0)
@@ -43,7 +43,7 @@ const HeroForm = () => {
            .catch(err=>{
               console.log(err);
              })   
-       }
+    }
 
   
 
@@ -60,10 +60,10 @@ const HeroForm = () => {
                     <Form.Control type="text" placeholder="Hero name" value={name}
                     onChange={handleNameChange}/>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="ability">
-                    <Form.Label>Hero Ability: </Form.Label>
-                    <Form.Control type="text" placeholder="Hero ability" value={ability}
-                    onChange={handleAbilityChange} />
+                <Form.Group className="mb-3" controlId="Superpower">
+                    <Form.Label>Hero Superpower: </Form.Label>
+                    <Form.Control type="text" placeholder="Hero Superpower" value={superpower}
+                    onChange={handleSuperpowerChange} />
                 </Form.Group>
                 <Form.Select aria-label="Team ID" value={teamID}
                 onChange={handleTeamChange}>
